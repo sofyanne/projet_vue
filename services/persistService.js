@@ -22,8 +22,10 @@ async function getData() {
 }
 
 async function deleteData(id) {
-  console.log(id)
-  const data = await fetch("http://127.0.0.1:3000/api/v1/todos/");
+  const data = await fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
   const result = await data.json();
   return result;
 }

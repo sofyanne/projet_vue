@@ -15,7 +15,7 @@
           class="flex p-2 ml-2 border-2 rounded text-yellow-500 border-yellow-500 hover:text-white hover:bg-yellow-500"
       >Editer</button>
       <button
-          @click="removeTodo(todo.id)"
+          @click="removeTodo(id)"
           class="flex p-2 ml-2 border-2 rounded text-red-500 border-red-500 hover:text-white hover:bg-red-500"
       >Supprimer</button>
     </div>
@@ -29,7 +29,8 @@
     data() {
       return {
         isEditing: false,
-        description: this.$props.todo.description
+        description: this.$props.todo.description,
+        id: this.$props.todo._id
       }
     },
     props: {

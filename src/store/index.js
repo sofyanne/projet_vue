@@ -39,7 +39,6 @@ const store = new Vuex.Store({
   },
   mutations: {
     initData(state, todos) {
-      console.log("mutation : initData");
       state.todos = todos;
     },
     setPage(state, page) {
@@ -95,12 +94,12 @@ const store = new Vuex.Store({
       commit("editTodo", updatedTodo);
       setData("todos", state.todos);
     },
-    removeTodo({ state, commit }, todoId) {
-     
-      deleteData(todoId)
-      console.log(todoId);
-      commit("removeTodo", todoId);
-      setData("todos", state.todos);
+    removeTodo({state, commit }, todoId) {    
+      deleteData(todoId).then(() => {
+        commit("removeTodo", todoId);
+        setData("todos", state.todos);
+      });
+      
     },
   },
 });

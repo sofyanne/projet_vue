@@ -72,6 +72,7 @@ exports.patchItem = (req, res) => {
 
 //contrôleur de la route DELETE /todo/:id
 exports.deleteItem = (req, res) => {
+  console.log("DELETE");
   // on interroge la base de donnée
   Todo.deleteOne({
     _id: req.params.id
